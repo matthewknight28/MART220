@@ -6,9 +6,9 @@ var timerVal=30;
 var boldFont;
 var lightFont;
 var lightItalicFont;
-
-let osc, playing, freq, amp;
-
+var grid1;
+var freq;
+var osc;
 
 function preload() {
     boldFont = loadFont('./assets/fonts/Bold.ttf');
@@ -33,8 +33,8 @@ background(220);
   text('Matthew Knight', 660, 425);
   text('Music Generator 4000', 10, 20);
 
-  var grid1 = new myGrid(50, 130, "RHYTHM");
-  grid1.drawGrid();
+  grid1 = new mySynth(50, 130, "RHYTHM");
+  grid1.makeSynth();
 
   var grid2 = new myGrid(225, 130, "BASS");
   grid2.drawGrid();
