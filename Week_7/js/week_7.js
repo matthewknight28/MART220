@@ -57,3 +57,11 @@ function timeStamp(){
     x=0;
   }
 }
+
+function mousePressed(){
+  grid1.mousePressy();
+}
+
+function mouseReleased(){
+  grid1.mouseUnpressy();
+}

@@ -37,9 +37,8 @@ class mySynth
 
 
     }
-}
 
-function mousePressed(){
+  mousePressy(){
   if (mouseX >= this.x && mouseX<= this.x+124){
     freq = map(mouseX, 0, width, 220, 880);
     osc = new p5.Oscillator(freq, 'sine');
@@ -47,12 +46,13 @@ function mousePressed(){
   } 
 }
 
-function mouseDragged(){
+ mouseDragged(){
   if (mouseX >= this.x && mouseX<= this.x+124)
   freq = map(mouseX, 0, width, 220, 880);
   osc.freq(freq, 0.1);
 }
 
-function mouseReleased() {
+ mouseUnpressy() {
   osc.stop();
+}
 }
