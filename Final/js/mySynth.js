@@ -35,6 +35,9 @@ class mySynth
         line(this.x+62, this.y+10, this.x+62, this.y+134);
         line(this.x+93, this.y+10, this.x+93, this.y+134);
 
+
+        fill(0);
+        text("Freq: " +floor(freq), this.x+40, this.y+170);
         /*fill(30, 30, 30);
         rect(x+this.x+5, this.y+160, 5, 10);*/
 
@@ -44,27 +47,30 @@ class mySynth
     }
 
   mousePressy(){
-  if (mouseX >= this.x && mouseX<= this.x+124){
-    freq = map(mouseX, 0, width, 110, 1760);
+  if (mouseX >= this.x && mouseX<= this.x+124 && mouseY>= this.y && mouseY<= this.y+134){
+    //freq = map(mouseX, 0, width, 220, 1200);
+    freq = map(mouseX, this.x, this.x+124, 220, 1200);
     osc = new p5.Oscillator(freq, this.type);
     osc.start();
+    osc.amp(map(mouseY, 0, height, 4, -3));
    /* createParticles(constrain(mouseX, this.x+5, this.x+119), constrain(mouseY, this.y+15, this.y+129)); */
-
    
   } 
 }
 
  mouseDraggy(){
-  if (mouseX >= this.x && mouseX<= this.x+124)
-  freq = map(mouseX, this.x, this.x+124, 110, 1200);
+  if (mouseX >= this.x && mouseX<= this.x+124 && mouseY>= this.y && mouseY<= this.y+134)
+  freq = map(mouseX, this.x, this.x+124, 220, 1200);
   osc.freq(freq, 0.1);
+  osc.amp(map(mouseY, 0, height, 4, -3));
 }
 
  mouseUnpressy() {
   osc.stop();
 }
 
-createParticles(x, y)
+createParticles(x, y){
+  if (mouseX >= this.x && mouseX<= this.x+124 && mouseY>= this.y && mouseY<= this.y+134)
 {
 for (let i = 0; i < 5; i++) {
     let p = new Particle(x,y);
@@ -79,5 +85,5 @@ for (let i = 0; i < 5; i++) {
     }
   }
 }
-
+}
 }
